@@ -25,7 +25,7 @@ function Images() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/image/new" passHref>
+      <Link href="/photo/new" passHref>
         <Button>Add A Photo</Button>
       </Link>
       <div className="d-flex flex-wrap">
