@@ -17,7 +17,7 @@ const initialState = {
   isDestiny: false,
 };
 
-function SongForm({ obj, albumObj }) {
+function SongForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [albums, setAlbums] = useState([]);
   const router = useRouter();
@@ -41,13 +41,13 @@ function SongForm({ obj, albumObj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateSong(formInput)
-        .then(() => router.push(`/album/${albumObj.firebaseKey}`));
+        .then(() => router.push(`/album/${obj.albumId}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createSong(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateSong(patchPayload).then(() => {
-          router.push(`/album/${albumObj.firebaseKey}`);
+          router.push(`/album/${formInput.albumId}`);
         });
       });
     }
@@ -165,9 +165,6 @@ SongForm.propTypes = {
     isDestiny: PropTypes.bool,
     firebaseKey: PropTypes.string,
   }),
-  albumObj: PropTypes.shape({
-    firebaseKey: PropTypes.string,
-  }).isRequired,
 };
 
 SongForm.defaultProps = {
