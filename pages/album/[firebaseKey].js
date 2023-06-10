@@ -1,25 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
-import { viewAlbumDetails } from '../../api/mergedData';
+import { deleteAlbumSongs, viewAlbumDetails } from '../../api/mergedData';
 import { deleteAlbum } from '../../api/albumData';
 import SongCard from '../../components/SongCard';
 
-export default function ViewAlbum({ albumObj, onUpdate }) {
+export default function ViewAlbum() {
   const [albumDetails, setAlbumDetails] = useState({});
   const router = useRouter();
-
-  const deleteThisAlbum = () => {
-    if (window.confirm(`Delete ${albumObj.title}?`)) {
-      deleteAlbum(albumObj.firebaseKey).then(() => onUpdate());
-    }
-  };
-
   // TODO: grab firebaseKey from url
   const { firebaseKey } = router.query;
+
+  const onUpdate = () => {
+    viewAlbumDetails(firebaseKey).then(setAlbumDetails);
+  };
+
+  const deleteThisAlbum = () => {
+    if (window.confirm(`Delete ${albumDetails.title}?`)) {
+      deleteAlbum(albumDetails.firebaseKey)
+        .then(() => deleteAlbumSongs(albumDetails.firebaseKey))
+        .then(() => onUpdate(onUpdate));
+    }
+  };
 
   // TODO: make call to API layer to get the data
   useEffect(() => {
@@ -40,30 +44,21 @@ export default function ViewAlbum({ albumObj, onUpdate }) {
           <Link href="/song/new" passHref>
             <Button variant="primary" className="m-2">ADD SONG</Button>
           </Link>
-          {/* <Link href={`/album/edit/${albumObj.firebaseKey}`} passHref>
+          <Link href={`/album/edit/${albumDetails.firebaseKey}`} passHref>
             <Button variant="info">EDIT</Button>
-          </Link> */}
-          <Button variant="danger" onClick={deleteThisAlbum} className="m-2">
-            DELETE
-          </Button>
+          </Link>
+          <Link href="/albums" passHref>
+            <Button variant="danger" onClick={deleteThisAlbum} className="m-2">
+              DELETE
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="d-flex flex-wrap">
         {albumDetails?.songs?.map((song) => (
-          <SongCard key={song.firebaseKey} songObj={song} />
+          <SongCard key={song.firebaseKey} songObj={song} onUpdate={onUpdate} />
         ))}
       </div>
     </div>
   );
 }
-
-ViewAlbum.propTypes = {
-  albumObj: PropTypes.shape({
-    image: PropTypes.string,
-    title: PropTypes.string,
-    year: PropTypes.string,
-    isDestiny: PropTypes.bool,
-    firebaseKey: PropTypes.string,
-  }).isRequired,
-  onUpdate: PropTypes.func.isRequired,
-};
