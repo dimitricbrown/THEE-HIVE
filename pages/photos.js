@@ -1,27 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
-import { useAuth } from '../utils/context/authContext';
 import { getImages } from '../api/photoData';
 import ImageCard from '../components/PhotoCard';
 
-function Images() {
+function Images({ isDestiny }) {
   // TODO: Set a state for images
   const [images, setImages] = useState([]);
 
-  // TODO: Get user ID using useAuth Hook
-  const { user } = useAuth();
-
   // TODO: create a function that makes the API call to get all the images
   const getAllTheImages = () => {
-    getImages(user.uid).then(setImages);
+    getImages().then((fetchedImages) => {
+      if (isDestiny) {
+        setImages(fetchedImages.filter((image) => image.isDestiny === true));
+      } else {
+        setImages(fetchedImages.filter((image) => image.isDestiny === false));
+      }
+    });
   };
 
   // TODO: make the call to the API to get all the images on component render
   useEffect(() => {
     getAllTheImages();
-  }, []);
+  }, [isDestiny]);
 
   return (
     <div className="text-center my-4">
@@ -37,5 +40,9 @@ function Images() {
     </div>
   );
 }
+
+Images.propTypes = {
+  isDestiny: PropTypes.bool.isRequired,
+};
 
 export default Images;

@@ -3,8 +3,8 @@ import { clientCredentials } from '../utils/client';
 const dbUrl = clientCredentials.databaseURL;
 
 // TODO:  GET ALL ALBUMS
-const getAlbums = (uid) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/albums.json?orderBy="uid"&equalTo="${uid}"`, {
+const getAlbums = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/albums.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

@@ -1,27 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { getAwards } from '../api/awardData';
-import { useAuth } from '../utils/context/authContext';
 import AwardCard from '../components/AwardCard';
 
-function Awards() {
+function Awards({ isDestiny }) {
   // TODO: Set a state for awards
   const [awards, setAwards] = useState([]);
 
-  // TODO: Get user ID using useAuth Hook
-  const { user } = useAuth();
-
   // TODO: create a function that makes the API call to get all the awards
   const getAllTheAwards = () => {
-    getAwards(user.uid).then(setAwards);
+    getAwards().then((fetchedAwards) => {
+      if (isDestiny) {
+        setAwards(fetchedAwards.filter((award) => award.isDestiny === true));
+      } else {
+        setAwards(fetchedAwards.filter((award) => award.isDestiny === false));
+      }
+    });
   };
 
   // TODO: make the call to the API to get all the awards on component render
   useEffect(() => {
     getAllTheAwards();
-  }, []);
+  }, [isDestiny]);
 
   return (
     <div className="text-center my-4">
@@ -37,5 +40,9 @@ function Awards() {
     </div>
   );
 }
+
+Awards.propTypes = {
+  isDestiny: PropTypes.bool.isRequired,
+};
 
 export default Awards;

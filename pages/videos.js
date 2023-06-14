@@ -1,27 +1,30 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { getVideos } from '../api/videoData';
-import { useAuth } from '../utils/context/authContext';
 import VideoCard from '../components/VideoCard';
 
-function Videos() {
+function Videos({ isDestiny }) {
   // TODO: Set a state for videos
   const [videos, setVideos] = useState([]);
 
-  // TODO: Get user ID using useAuth Hook
-  const { user } = useAuth();
-
   // TODO: create a function that makes the API call to get all the videos
   const getAllTheVideos = () => {
-    getVideos(user.uid).then(setVideos);
+    getVideos().then((fetchedVideos) => {
+      if (isDestiny) {
+        setVideos(fetchedVideos.filter((video) => video.isDestiny === true));
+      } else {
+        setVideos(fetchedVideos.filter((video) => video.isDestiny === false));
+      }
+    });
   };
 
   // TODO: make the call to the API to get all the videos on component render
   useEffect(() => {
     getAllTheVideos();
-  }, []);
+  }, [isDestiny]);
 
   return (
     <div className="text-center my-4">
@@ -37,5 +40,9 @@ function Videos() {
     </div>
   );
 }
+
+Videos.propTypes = {
+  isDestiny: PropTypes.bool.isRequired,
+};
 
 export default Videos;
