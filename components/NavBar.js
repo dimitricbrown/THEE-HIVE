@@ -1,18 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import {
   Navbar, Container, Nav, Button,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
+import DestinyToggle from './DestinyToggle';
 
-export default function NavBar() {
+export default function NavBar({ isDestiny, onToggle }) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Link passHref href="/">
           <Navbar.Brand>THEE HIVE</Navbar.Brand>
         </Link>
+        <DestinyToggle isDestiny={isDestiny} onToggle={onToggle} />
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end">
           <Nav className="me-auto">
@@ -42,3 +45,8 @@ export default function NavBar() {
     </Navbar>
   );
 }
+
+NavBar.propTypes = {
+  isDestiny: PropTypes.bool.isRequired,
+  onToggle: PropTypes.func.isRequired,
+};
