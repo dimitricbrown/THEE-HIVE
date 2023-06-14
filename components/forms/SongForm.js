@@ -133,22 +133,6 @@ function SongForm({ obj }) {
         </Form.Select>
       </FloatingLabel>
 
-      {/* A WAY TO HANDLE UPDATES FOR TOGGLES, RADIOS, ETC  */}
-      <Form.Check
-        className="text-white mb-3"
-        type="switch"
-        id="isDestiny"
-        name="isDestiny"
-        label="Part of Destiny's Child Catalog?"
-        checked={formInput.isDestiny}
-        onChange={(e) => {
-          setFormInput((prevState) => ({
-            ...prevState,
-            isDestiny: e.target.checked,
-          }));
-        }}
-      />
-
       {/* SUBMIT BUTTON  */}
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Song</Button>
     </Form>
@@ -162,7 +146,6 @@ SongForm.propTypes = {
     hasFeat: PropTypes.bool,
     featureArtist: PropTypes.any,
     albumId: PropTypes.string,
-    isDestiny: PropTypes.bool,
     firebaseKey: PropTypes.string,
   }),
 };
