@@ -50,13 +50,25 @@ function VideoForm({ obj }) {
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Video</h2>
 
-      {/* VIDEO INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="Video" className="mb-3">
+      {/* VIDEO URL INPUT  */}
+      <FloatingLabel controlId="floatingInput1" label="Video URL" className="mb-3">
         <Form.Control
           type="text"
           placeholder="ADD VIDEO URL"
           name="video"
           value={formInput.video}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* VIDEO THUMBNAIL INPUT  */}
+      <FloatingLabel controlId="floatingInput1" label="Video Thumbnail" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="ADD VIDEO THUMBNAIL URL"
+          name="thumbnail"
+          value={formInput.thumbnail}
           onChange={handleChange}
           required
         />
@@ -99,6 +111,7 @@ function VideoForm({ obj }) {
 VideoForm.propTypes = {
   obj: PropTypes.shape({
     video: PropTypes.string,
+    thumbnail: PropTypes.string,
     description: PropTypes.string,
     isDestiny: PropTypes.bool,
     firebaseKey: PropTypes.string,
