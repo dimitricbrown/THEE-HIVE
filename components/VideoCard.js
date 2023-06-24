@@ -13,8 +13,8 @@ function VideoCard({ videoObj, onUpdate }) {
   };
 
   return (
-    <Card controls width="100%">
-      <Card.Video variant="top" src={videoObj.video} />
+    <Card style={{ width: '18rem', margin: '10px' }}>
+      <Card.Img variant="top" src={videoObj.thumbnail} alt={videoObj.description} style={{ height: 'auto' }} />
       <Card.Body>
         <Card.Title>{videoObj.description}</Card.Title>
         <Link href={`/video/${videoObj.firebaseKey}`} passHref>
@@ -34,6 +34,7 @@ function VideoCard({ videoObj, onUpdate }) {
 VideoCard.propTypes = {
   videoObj: PropTypes.shape({
     video: PropTypes.string,
+    thumbnail: PropTypes.string,
     description: PropTypes.string,
     isDestiny: PropTypes.bool,
     firebaseKey: PropTypes.string,
