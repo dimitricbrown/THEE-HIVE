@@ -18,5 +18,126 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-image: url("https://bijou.my.canva.site/copy-of-thee-hive-website/images/afc508828bddd9b5a143ddad58f7a18e.jpg");
+  background-attachment: fixed;
+  background-position: center; 
 }
+
+.signIn {
+  width: 100%;
+  height: 100vh;
+}
+
+.signInVid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signInContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(204, 190, 0);
+}
+
+.signInOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.4);
+}
+
+.post-container {
+  width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #000000;
+  position: relative;
+  background-color: rgb(233, 159, 0);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Added for aligning icons */
+  margin-bottom: 10px;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: bold;
+  flex-grow: 1; /* Added to allow the displayName to take available space */
+  margin-right: 10px; /* Added for spacing between displayName and icons */
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+}
+
+.action {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.post-content {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.engagement-metrics {
+  margin-bottom: 10px;
+}
+
+.caption {
+  margin-bottom: 10px;
+}
+
+.comment-section {
+  margin-top: 20px;
+}
+
+.comment-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  display: flex;
+}
+
+input[type='text'] {
+  flex: 1;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* button:hover {
+  background-color: #000000;
+} */

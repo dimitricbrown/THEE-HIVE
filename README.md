@@ -1,62 +1,78 @@
-# React/Next.js Template
+# THEE HIVE
 
-[See Live Demo of this Template](https://drt-next-js-template.netlify.app/)
+[See THEE HIVE Live!](https://drt-next-js-template.netlify.app/)
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Using axios](#using-axios)
-- [Deploying on Netlify](#deploying-on-netlify)
+## Overview
+In the forever era of social media, you have the top contenders like Twitter, Reddit, Instagram, Facebook, etc. All great places to socialize but not specifically focus on the topic of your interest ONLY. In this case, it is the Queen Bee, Beyoncé! THEE HIVE is the ultimate Beyoncé fansite! This app allows "The B Hive" fans to share their love for the Queen in a safe space and keeps the sting away from the haters.
+
+- [Serving the Project](#serving-the-project)
+
+- [Serving the Project](#serving-the-project)
+
+## Features
+
++ Users login to the app using Google Authentication
++ Users can create catalogs for albums, photos, videos, and awards
++ Users can view a single album, photo, or video
++ Users can add songs to a single album
++ Users can update or delete any album, song, photo, video or award
++ Users can delete a single album and it's associated songs at once
++ Users can view a video and play the video within the app
++ Users can toggle between catalogs for Beyoncé or her successful girl group, Destiny's Child
+
 ___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+## Swarm THEE HIVE Yourself
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+1. Set up a Firebase project.
+2. Clone THEE HIVE to your local machine.
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+        git@github.com:dimitricbrown/THEE-HIVE.git
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+3. Move into your directory.
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+        cd THEE-HIVE
 
+4. In the root directory of the CLI, run
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+        npm install or npm i
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
+5. When VSCode has opened the application, create a .env file at the root of the project and paste the following keys into the .env file:
 
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
+        NEXT_PUBLIC_FIREBASE_API_KEY=""
+        NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=""
+        NEXT_PUBLIC_FIREBASE_DATABASE_URL=""
+        NEXT_PUBLIC_FIREBASE_PROJECT_ID=""
+        NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=""
+        NEXT_PUBLIC_FIREBASE_APP_ID=""
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+6. Insert your firebase configuration values to the corresponding keys in the previous step.
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+7. Build your firebase database with the necessary data to render in the app.
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
+8. After completing your database, return to the CLI and run
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+        npm run prepare
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+9. To start THEE HIVE, run
+
+        npm run dev
+
+10. Click [http://localhost:3000](http://localhost:3000) in the terminal to open the DOM.
+
+11. Time to BUZZ into THEE HIVE! 🐝
+
+## Building THEE HIVE
+
+- [Wireframe](https://www.canva.com/design/DAFja1YP23A/RF5_r-ohZgq09oLQvmLmvg/watch?utm_content=DAFja1YP23A&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+- [ERD](https://dbdiagram.io/d/646827fddca9fb07c46d388d)
+
+## Contributors
+
++ [Dimitric C. Brown](https://github.com/dimitricbrown)
+  - [LinkedIn](https://www.linkedin.com/in/dimitricbrown/)
+
+## Peek Inside THEE HIVE
+
+![Beyonce Album Page](./assets/Screenshot 2023-07-08 224122.png)
+![Destiny's Child Album Page](./assets/Screenshot 2023-07-08 224437.png)
+![Single Video Page](.assets/Screenshot 2023-07-08 224437.png)

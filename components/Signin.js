@@ -1,23 +1,19 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { signIn } from '../utils/auth';
+import fwt from '../assets/fwt.mp4';
 
 function Signin() {
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hi there!</h1>
-      <p>Click the button below to login!</p>
-      <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
-        Sign In
-      </Button>
+    <div className="signIn">
+      <div className="signInOverlay" />
+      <video className="signInVid" src={fwt} autoPlay loop muted />
+      <div className="signInContent">
+        <h1>THEE HIVE</h1>
+        <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
+          BUZZ IN
+        </Button>
+      </div>
     </div>
   );
 }
