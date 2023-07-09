@@ -69,6 +69,6 @@ ___
 
 ## Peek Inside THEE HIVE
 
-![Beyonce Album Page](./assets/Screenshot 2023-07-08 224122.png)
-![Destiny's Child Album Page](./assets/Screenshot 2023-07-08 224437.png)
-![Single Video Page](.assets/Screenshot 2023-07-08 224437.png)
+![Beyonce Album Page](./assets/224122.png)
+![Destiny's Child Album Page](./assets/224547.png)
+![Single Video Page](.assets/224437.png)
