@@ -5,10 +5,6 @@
 ## Overview
 In the forever era of social media, you have the top contenders like Twitter, Reddit, Instagram, Facebook, etc. All great places to socialize but not specifically focus on the topic of your interest ONLY. In this case, it is the Queen Bee, Beyoncé! THEE HIVE is the ultimate Beyoncé fansite! This app allows "The B Hive" fans to share their love for the Queen in a safe space and keeps the sting away from the haters.
 
-- [Serving the Project](#serving-the-project)
-
-- [Serving the Project](#serving-the-project)
-
 ## Features
 
 + Users login to the app using Google Authentication
