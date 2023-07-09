@@ -71,4 +71,4 @@ ___
 
 ![Beyonce Album Page](./assets/224122.png)
 ![Destiny's Child Album Page](./assets/224547.png)
-![Single Video Page](.assets/224437.png)
+![Single Video Page](./assets/224437.png)
